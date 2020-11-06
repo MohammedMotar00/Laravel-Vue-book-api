@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <header>Welcome to book api</header>
+
     <div class="dropdown-list">
       <label for="api">choose api:</label>
       <select name="api" id="api" v-model="value">
@@ -8,6 +9,14 @@
         <option value="authors">Authors</option>
         <option value="genres">Genres</option>
       </select>
+    </div>
+
+    <div v-for="data of dataArr" :key="data.id">
+      <p>id: {{ data.id }}</p>
+      <p>description: {{ data.description }}</p>
+      <p>title: {{ data.title }}</p>
+      <p>isbn: {{ data.isbn }}</p>
+      <hr />
     </div>
   </div>
 </template>
@@ -21,12 +30,16 @@ export default {
   data() {
     return {
       value: "books",
+
+      dataArr: [],
     };
   },
 
   methods: {
-    fetchData() {
-      axios(`api/${this.value}`).then((res) => console.log(res));
+    fetchData(value) {
+      axios(`api/${value ?? this.value}`).then((res) => {
+        for (let data of res.data) this.dataArr.push(data);
+      });
     },
   },
 
@@ -34,8 +47,12 @@ export default {
     this.fetchData();
   },
 
-  updated() {
-    this.fetchData();
+  watch: {
+    // this.fetchData();
+    value(value) {
+      this.dataArr = [];
+      this.fetchData(value);
+    },
   },
 };
 </script>

@@ -21,11 +21,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
   return $request->user();
 });
 
-Route::get('/books', [BooksController::class, 'index']);
-Route::get('/books/{id}', [BooksController::class, 'show']);
+Route::get('/books', [BooksController::class, 'index'])->middleware('throttle:1000,1');
+Route::get('/books/{id}', [BooksController::class, 'show'])->middleware('throttle:1000,1');
 
-Route::get('/authors', [AuthorsController::class, 'index']);
-Route::get('/authors/{id}', [AuthorsController::class, 'show']);
+Route::get('/authors', [AuthorsController::class, 'index'])->middleware('throttle:1000,1');
+Route::get('/authors/{id}', [AuthorsController::class, 'show'])->middleware('throttle:1000,1');
 
-Route::get('/genres', [GenresController::class, 'index']);
-Route::get('/genres/{id}', [GenresController::class, 'show']);
+Route::get('/genres', [GenresController::class, 'index'])->middleware('throttle:1000,1');
+Route::get('/genres/{id}', [GenresController::class, 'show'])->middleware('throttle:1000,1');

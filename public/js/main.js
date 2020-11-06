@@ -1929,6 +1929,21 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1948,21 +1963,41 @@ __webpack_require__.r(__webpack_exports__);
   name: "Home",
   data: function data() {
     return {
-      value: "books"
+      value: "books",
+      dataArr: []
     };
   },
   methods: {
-    fetchData: function fetchData() {
-      axios__WEBPACK_IMPORTED_MODULE_0___default()("api/".concat(this.value)).then(function (res) {
-        return console.log(res);
+    fetchData: function fetchData(value) {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default()("api/".concat(value !== null && value !== void 0 ? value : this.value)).then(function (res) {
+        var _iterator = _createForOfIteratorHelper(res.data),
+            _step;
+
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var data = _step.value;
+
+            _this.dataArr.push(data);
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
       });
     }
   },
   created: function created() {
     this.fetchData();
   },
-  updated: function updated() {
-    this.fetchData();
+  watch: {
+    // this.fetchData();
+    value: function value(_value) {
+      this.dataArr = [];
+      this.fetchData(_value);
+    }
   }
 });
 
@@ -2475,50 +2510,69 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "home" }, [
-    _c("header", [_vm._v("Welcome to book api")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "dropdown-list" }, [
-      _c("label", { attrs: { for: "api" } }, [_vm._v("choose api:")]),
+  return _c(
+    "div",
+    { staticClass: "home" },
+    [
+      _c("header", [_vm._v("Welcome to book api")]),
       _vm._v(" "),
-      _c(
-        "select",
-        {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.value,
-              expression: "value"
+      _c("div", { staticClass: "dropdown-list" }, [
+        _c("label", { attrs: { for: "api" } }, [_vm._v("choose api:")]),
+        _vm._v(" "),
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.value,
+                expression: "value"
+              }
+            ],
+            attrs: { name: "api", id: "api" },
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.value = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
             }
-          ],
-          attrs: { name: "api", id: "api" },
-          on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.value = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
-          }
-        },
-        [
-          _c("option", { attrs: { value: "books" } }, [_vm._v("Books")]),
+          },
+          [
+            _c("option", { attrs: { value: "books" } }, [_vm._v("Books")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "authors" } }, [_vm._v("Authors")]),
+            _vm._v(" "),
+            _c("option", { attrs: { value: "genres" } }, [_vm._v("Genres")])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _vm._l(_vm.dataArr, function(data) {
+        return _c("div", { key: data.id }, [
+          _c("p", [_vm._v("id: " + _vm._s(data.id))]),
           _vm._v(" "),
-          _c("option", { attrs: { value: "authors" } }, [_vm._v("Authors")]),
+          _c("p", [_vm._v("description: " + _vm._s(data.description))]),
           _vm._v(" "),
-          _c("option", { attrs: { value: "genres" } }, [_vm._v("Genres")])
-        ]
-      )
-    ])
-  ])
+          _c("p", [_vm._v("title: " + _vm._s(data.title))]),
+          _vm._v(" "),
+          _c("p", [_vm._v("isbn: " + _vm._s(data.isbn))]),
+          _vm._v(" "),
+          _c("hr")
+        ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -17944,8 +17998,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\moham\OneDrive\Skrivbord\Laravel\books\resources\js\src\main */"./resources/js/src/main.js");
-module.exports = __webpack_require__(/*! C:\Users\moham\OneDrive\Skrivbord\Laravel\books\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\moham\OneDrive\Skrivbord\Praktik\Laravel-Vue-book-api\resources\js\src\main */"./resources/js/src/main.js");
+module.exports = __webpack_require__(/*! C:\Users\moham\OneDrive\Skrivbord\Praktik\Laravel-Vue-book-api\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
