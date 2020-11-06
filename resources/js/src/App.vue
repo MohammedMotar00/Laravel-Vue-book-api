@@ -8,5 +8,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+h2 {
+  font-size: 18px;
+}
 </style>
