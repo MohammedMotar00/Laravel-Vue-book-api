@@ -10,5 +10,5 @@ class Genres extends Model
   use HasFactory;
 
   protected $table = 'genres';
-  protected $fillabel = ['name'];
+  protected $fillable = ['name'];
 }

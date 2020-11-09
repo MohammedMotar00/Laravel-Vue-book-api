@@ -61,7 +61,7 @@ export default {
   methods: {
     fetchData(value) {
       axios(`api/${value ?? this.value}`).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         for (let data of res.data) this.dataArr.push(data);
       });
     },
