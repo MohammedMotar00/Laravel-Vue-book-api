@@ -22,7 +22,10 @@ export default {
 <style lang="scss" scoped>
 .book-container {
   border: 1px solid #ccc;
-  max-width: 200px;
+  display: inline-flex;
+  flex-direction: column;
+
+  width: 200px;
   cursor: pointer;
 }
 </style>

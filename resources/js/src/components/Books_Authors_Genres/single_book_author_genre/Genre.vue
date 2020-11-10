@@ -7,14 +7,12 @@
     <hr />
 
     <div class="books">
+      <h1>Books:</h1>
       <div v-for="data in books_data" :key="data.id" class="book-container">
-        <div class="single-book">
+        <router-link :to="{ name: 'Book', params: { book_id: data.id } }">
           <h2>{{ data.title }}</h2>
-        </div>
-        <div class="description">
-          <h2>Description:</h2>
-          <p>{{ data.description }}</p>
-        </div>
+          <p>{{ data.description.substring(0, 120) + "..." }}</p>
+        </router-link>
       </div>
     </div>
   </div>
@@ -62,17 +60,13 @@ export default {
 <style lang="scss" scoped>
 .books {
   .book-container {
-    border: 1px solid red;
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    display: inline-flex;
+    flex-direction: column;
 
-    .single-book {
-      border: 1px solid;
-      width: 200px;
-      height: 300px;
-    }
-
-    .description {
-      border: 1px solid green;
-    }
+    width: 200px;
+    cursor: pointer;
   }
 }
 </style>

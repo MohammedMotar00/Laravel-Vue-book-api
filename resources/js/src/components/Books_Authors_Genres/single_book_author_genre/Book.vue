@@ -16,15 +16,19 @@
     <div>
       <h1>Author:</h1>
       <div v-for="data in authorData" :key="data.id" class="author">
-        <h2>{{ data.name }}</h2>
-        <p>{{ data.biography }}</p>
+        <router-link :to="{ name: 'Author', params: { author_id: data.id } }">
+          <h2>{{ data.name }}</h2>
+          <p>{{ data.biography }}</p>
+        </router-link>
       </div>
     </div>
 
     <div>
       <h1>Genres:</h1>
       <div v-for="data in genreData" :key="data.id" class="author">
-        <h2>{{ data.name }}</h2>
+        <router-link :to="{ name: 'Genre', params: { genre_id: data.id } }">
+          <h2>{{ data.name }}</h2>
+        </router-link>
       </div>
     </div>
   </div>

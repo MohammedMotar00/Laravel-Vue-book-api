@@ -2050,8 +2050,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Author",
@@ -2120,6 +2118,10 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+//
+//
+//
+//
 //
 //
 //
@@ -2262,8 +2264,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Genre",
@@ -2385,7 +2385,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
   },
   data: function data() {
     return {
-      value: "books",
+      value: localStorage.getItem("value") || "books",
       dataArr: []
     };
   },
@@ -2394,7 +2394,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default()("api/".concat(value !== null && value !== void 0 ? value : this.value)).then(function (res) {
-        // console.log(res.data);
         var _iterator = _createForOfIteratorHelper(res.data),
             _step;
 
@@ -2410,6 +2409,10 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
           _iterator.f();
         }
       });
+    },
+    onChange: function onChange(e) {
+      var value = e.target.value;
+      localStorage.setItem("value", e.target.value);
     }
   },
   created: function created() {
@@ -2437,7 +2440,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "h2 {\n  font-size: 18px;\n}", ""]);
+exports.push([module.i, "h2 {\n  font-size: 18px;\n}\na {\n  color: black;\n  text-decoration: none;\n}", ""]);
 
 // exports
 
@@ -2475,7 +2478,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".book-container[data-v-ff44afd2] {\n  border: 1px solid #ccc;\n  max-width: 200px;\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".book-container[data-v-ff44afd2] {\n  border: 1px solid #ccc;\n  display: inline-flex;\n  flex-direction: column;\n  width: 200px;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -2513,7 +2516,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".book-container[data-v-5ed3a3f9] {\n  margin-top: 30px;\n}\n.book-container .title[data-v-5ed3a3f9] {\n  border: 1px solid;\n  max-width: 400px;\n  max-height: 300px;\n}\n.book-container .description[data-v-5ed3a3f9] {\n  border: 1px solid green;\n}", ""]);
+exports.push([module.i, ".book-container[data-v-5ed3a3f9] {\n  margin-top: 30px;\n  border: 1px solid #ccc;\n  display: inline-flex;\n  flex-direction: column;\n  width: 200px;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -2551,7 +2554,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".books .book-container[data-v-13a7b285] {\n  border: 1px solid red;\n}\n.books .book-container .single-book[data-v-13a7b285] {\n  border: 1px solid;\n  width: 200px;\n  height: 300px;\n}\n.books .book-container .description[data-v-13a7b285] {\n  border: 1px solid green;\n}", ""]);
+exports.push([module.i, ".books .book-container[data-v-13a7b285] {\n  margin-top: 30px;\n  border: 1px solid #ccc;\n  display: inline-flex;\n  flex-direction: column;\n  width: 200px;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -2570,7 +2573,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".card-container[data-v-296ee69f] {\n  border: 1px solid blue;\n  display: grid;\n  gap: 20px;\n  grid-template-columns: repeat(4, 1fr);\n  text-align: center;\n}", ""]);
+exports.push([module.i, ".card-container[data-v-296ee69f] {\n  border: 1px solid blue;\n  display: grid;\n  gap: 20px;\n  grid-template-columns: repeat(4, 1fr);\n  justify-content: space-between;\n  text-align: center;\n}", ""]);
 
 // exports
 
@@ -4063,15 +4066,26 @@ var render = function() {
         _c("h1", [_vm._v("Books:")]),
         _vm._v(" "),
         _vm._l(_vm.bookData, function(data) {
-          return _c("div", { key: data.id, staticClass: "book-container" }, [
-            _c("div", { staticClass: "title" }, [
-              _c("h2", [_vm._v(_vm._s(data.title))])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "description" }, [
-              _c("p", [_vm._v(_vm._s(data.description))])
-            ])
-          ])
+          return _c(
+            "div",
+            { key: data.id, staticClass: "book-container" },
+            [
+              _c(
+                "router-link",
+                {
+                  attrs: { to: { name: "Book", params: { book_id: data.id } } }
+                },
+                [
+                  _c("h2", [_vm._v(_vm._s(data.title))]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(_vm._s(data.description.substring(0, 120) + "..."))
+                  ])
+                ]
+              )
+            ],
+            1
+          )
         })
       ],
       2
@@ -4123,11 +4137,26 @@ var render = function() {
         _c("h1", [_vm._v("Author:")]),
         _vm._v(" "),
         _vm._l(_vm.authorData, function(data) {
-          return _c("div", { key: data.id, staticClass: "author" }, [
-            _c("h2", [_vm._v(_vm._s(data.name))]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(data.biography))])
-          ])
+          return _c(
+            "div",
+            { key: data.id, staticClass: "author" },
+            [
+              _c(
+                "router-link",
+                {
+                  attrs: {
+                    to: { name: "Author", params: { author_id: data.id } }
+                  }
+                },
+                [
+                  _c("h2", [_vm._v(_vm._s(data.name))]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(data.biography))])
+                ]
+              )
+            ],
+            1
+          )
         })
       ],
       2
@@ -4139,9 +4168,22 @@ var render = function() {
         _c("h1", [_vm._v("Genres:")]),
         _vm._v(" "),
         _vm._l(_vm.genreData, function(data) {
-          return _c("div", { key: data.id, staticClass: "author" }, [
-            _c("h2", [_vm._v(_vm._s(data.name))])
-          ])
+          return _c(
+            "div",
+            { key: data.id, staticClass: "author" },
+            [
+              _c(
+                "router-link",
+                {
+                  attrs: {
+                    to: { name: "Genre", params: { genre_id: data.id } }
+                  }
+                },
+                [_c("h2", [_vm._v(_vm._s(data.name))])]
+              )
+            ],
+            1
+          )
         })
       ],
       2
@@ -4180,20 +4222,33 @@ var render = function() {
     _c(
       "div",
       { staticClass: "books" },
-      _vm._l(_vm.books_data, function(data) {
-        return _c("div", { key: data.id, staticClass: "book-container" }, [
-          _c("div", { staticClass: "single-book" }, [
-            _c("h2", [_vm._v(_vm._s(data.title))])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "description" }, [
-            _c("h2", [_vm._v("Description:")]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(data.description))])
-          ])
-        ])
-      }),
-      0
+      [
+        _c("h1", [_vm._v("Books:")]),
+        _vm._v(" "),
+        _vm._l(_vm.books_data, function(data) {
+          return _c(
+            "div",
+            { key: data.id, staticClass: "book-container" },
+            [
+              _c(
+                "router-link",
+                {
+                  attrs: { to: { name: "Book", params: { book_id: data.id } } }
+                },
+                [
+                  _c("h2", [_vm._v(_vm._s(data.title))]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(_vm._s(data.description.substring(0, 120) + "..."))
+                  ])
+                ]
+              )
+            ],
+            1
+          )
+        })
+      ],
+      2
     )
   ])
 }
@@ -4238,19 +4293,24 @@ var render = function() {
           ],
           attrs: { name: "api", id: "api" },
           on: {
-            change: function($event) {
-              var $$selectedVal = Array.prototype.filter
-                .call($event.target.options, function(o) {
-                  return o.selected
-                })
-                .map(function(o) {
-                  var val = "_value" in o ? o._value : o.value
-                  return val
-                })
-              _vm.value = $event.target.multiple
-                ? $$selectedVal
-                : $$selectedVal[0]
-            }
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.value = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              function($event) {
+                return _vm.onChange($event)
+              }
+            ]
           }
         },
         [

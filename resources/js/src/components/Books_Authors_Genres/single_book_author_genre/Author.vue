@@ -14,12 +14,10 @@
     <div>
       <h1>Books:</h1>
       <div v-for="data in bookData" :key="data.id" class="book-container">
-        <div class="title">
+        <router-link :to="{ name: 'Book', params: { book_id: data.id } }">
           <h2>{{ data.title }}</h2>
-        </div>
-        <div class="description">
-          <p>{{ data.description }}</p>
-        </div>
+          <p>{{ data.description.substring(0, 120) + "..." }}</p>
+        </router-link>
       </div>
     </div>
   </div>
@@ -68,14 +66,11 @@ export default {
 <style lang="scss" scoped>
 .book-container {
   margin-top: 30px;
-  .title {
-    border: 1px solid;
-    max-width: 400px;
-    max-height: 300px;
-  }
+  border: 1px solid #ccc;
+  display: inline-flex;
+  flex-direction: column;
 
-  .description {
-    border: 1px solid green;
-  }
+  width: 200px;
+  cursor: pointer;
 }
 </style>
