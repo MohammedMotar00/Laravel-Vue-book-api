@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genres;
-use App\Models\GenresForBook;
+use App\Models\BooksGenres;
 
 // use Illuminate\Http\Request;
 
@@ -23,7 +23,7 @@ class GenresController extends Controller
 
   public function genresForBook($id)
   {
-    $genreId = GenresForBook::where('book_id', $id)->get(['genre_id']);
+    $genreId = BooksGenres::where('book_id', $id)->get(['genre_id']);
 
     $genres = Genres::find($genreId);
 

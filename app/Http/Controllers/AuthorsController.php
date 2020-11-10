@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 // use Illuminate\Http\Request;
 
 use App\Models\Authors;
-use App\Models\AuthorsForBook;
+use App\Models\AuthorsBook;
 
 class AuthorsController extends Controller
 {
@@ -25,7 +25,7 @@ class AuthorsController extends Controller
   public function authorsForBook($id)
   {
     // Get author_id that matches book_id
-    $authorId = AuthorsForBook::where('book_id', $id)->get(['author_id']);
+    $authorId = AuthorsBook::where('book_id', $id)->get(['author_id']);
 
     // Get data from that matched author_id
     $authors = Authors::find($authorId);
