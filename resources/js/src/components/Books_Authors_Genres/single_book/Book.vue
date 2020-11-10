@@ -1,8 +1,9 @@
 <template>
   <div class="book">
     <div class="book-container">
-      <div class="single-book" :id="book_obj.id">
+      <div class="single-book" :key="book_obj.id">
         <h2>{{ book_obj.title }}</h2>
+        <h2>id:{{ book_obj.id }}</h2>
       </div>
       <div class="description">
         <h2>Description:</h2>
@@ -11,6 +12,21 @@
     </div>
 
     <hr />
+
+    <div>
+      <h1>Author:</h1>
+      <div v-for="data in authorData" :key="data.id" class="author">
+        <h2>{{ data.name }}</h2>
+        <p>{{ data.biography }}</p>
+      </div>
+    </div>
+
+    <div>
+      <h1>Genres:</h1>
+      <div v-for="data in genreData" :key="data.id" class="author">
+        <h2>{{ data.name }}</h2>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -25,13 +41,15 @@ export default {
       book_id: this.$route.params.book_id,
 
       book_obj: {},
+      authorData: [],
+      genreData: [],
     };
   },
 
   created() {
     this.fetchBook();
-    console.log(this.book_obj);
-    // console.log(JSON.parse(JSON.stringify(this.book_obj.data)));
+    this.getAuthor();
+    this.getGenre();
   },
 
   methods: {
@@ -45,14 +63,24 @@ export default {
         this.book_obj = obj;
       });
     },
+
+    getAuthor() {
+      axios(`/api/authors_book/${this.book_id}`).then((res) => {
+        for (let data of res.data) this.authorData.push(data);
+      });
+    },
+
+    getGenre() {
+      axios(`/api/genres_book/${this.book_id}`).then((res) => {
+        for (let data of res.data) this.genreData.push(data);
+      });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .book {
-  border: 1px solid blue;
-
   .book-container {
     border: 1px solid red;
 
@@ -65,6 +93,12 @@ export default {
     .description {
       border: 1px solid green;
     }
+  }
+
+  .author {
+    border: 1px solid;
+    max-width: 400px;
+    max-height: 300px;
   }
 }
 </style>

@@ -2008,6 +2008,28 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2030,12 +2052,15 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       book_id: this.$route.params.book_id,
-      book_obj: {}
+      book_obj: {},
+      authorData: [],
+      genreData: []
     };
   },
   created: function created() {
     this.fetchBook();
-    console.log(this.book_obj); // console.log(JSON.parse(JSON.stringify(this.book_obj.data)));
+    this.getAuthor();
+    this.getGenre();
   },
   methods: {
     fetchBook: function fetchBook() {
@@ -2047,6 +2072,46 @@ __webpack_require__.r(__webpack_exports__);
         obj.title = res.data.title;
         obj.description = res.data.description;
         _this.book_obj = obj;
+      });
+    },
+    getAuthor: function getAuthor() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default()("/api/authors_book/".concat(this.book_id)).then(function (res) {
+        var _iterator = _createForOfIteratorHelper(res.data),
+            _step;
+
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var data = _step.value;
+
+            _this2.authorData.push(data);
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+      });
+    },
+    getGenre: function getGenre() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default()("/api/genres_book/".concat(this.book_id)).then(function (res) {
+        var _iterator2 = _createForOfIteratorHelper(res.data),
+            _step2;
+
+        try {
+          for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+            var data = _step2.value;
+
+            _this3.genreData.push(data);
+          }
+        } catch (err) {
+          _iterator2.e(err);
+        } finally {
+          _iterator2.f();
+        }
       });
     }
   }
@@ -2253,7 +2318,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".book[data-v-24e416bb] {\n  border: 1px solid blue;\n}\n.book .book-container[data-v-24e416bb] {\n  border: 1px solid red;\n}\n.book .book-container .single-book[data-v-24e416bb] {\n  border: 1px solid;\n  width: 200px;\n  height: 300px;\n}\n.book .book-container .description[data-v-24e416bb] {\n  border: 1px solid green;\n}", ""]);
+exports.push([module.i, ".book .book-container[data-v-24e416bb] {\n  border: 1px solid red;\n}\n.book .book-container .single-book[data-v-24e416bb] {\n  border: 1px solid;\n  width: 200px;\n  height: 300px;\n}\n.book .book-container .description[data-v-24e416bb] {\n  border: 1px solid green;\n}\n.book .author[data-v-24e416bb] {\n  border: 1px solid;\n  max-width: 400px;\n  max-height: 300px;\n}", ""]);
 
 // exports
 
@@ -3673,11 +3738,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "book" }, [
     _c("div", { staticClass: "book-container" }, [
-      _c(
-        "div",
-        { staticClass: "single-book", attrs: { id: _vm.book_obj.id } },
-        [_c("h2", [_vm._v(_vm._s(_vm.book_obj.title))])]
-      ),
+      _c("div", { key: _vm.book_obj.id, staticClass: "single-book" }, [
+        _c("h2", [_vm._v(_vm._s(_vm.book_obj.title))]),
+        _vm._v(" "),
+        _c("h2", [_vm._v("id:" + _vm._s(_vm.book_obj.id))])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "description" }, [
         _c("h2", [_vm._v("Description:")]),
@@ -3686,7 +3751,37 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("hr")
+    _c("hr"),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c("h1", [_vm._v("Author:")]),
+        _vm._v(" "),
+        _vm._l(_vm.authorData, function(data) {
+          return _c("div", { key: data.id, staticClass: "author" }, [
+            _c("h2", [_vm._v(_vm._s(data.name))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(data.biography))])
+          ])
+        })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      [
+        _c("h1", [_vm._v("Genres:")]),
+        _vm._v(" "),
+        _vm._l(_vm.genreData, function(data) {
+          return _c("div", { key: data.id, staticClass: "author" }, [
+            _c("h2", [_vm._v(_vm._s(data.name))])
+          ])
+        })
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []

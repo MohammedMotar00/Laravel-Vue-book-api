@@ -27,6 +27,8 @@ Route::get('/books/{id}', [BooksController::class, 'show'])->middleware('throttl
 
 Route::get('/authors', [AuthorsController::class, 'index'])->middleware('throttle:1000,1');
 Route::get('/authors/{id}', [AuthorsController::class, 'show'])->middleware('throttle:1000,1');
+Route::get('/authors_book/{id}', [AuthorsController::class, 'authorsForBook'])->middleware('throttle:1000,1');
 
 Route::get('/genres', [GenresController::class, 'index'])->middleware('throttle:1000,1');
 Route::get('/genres/{id}', [GenresController::class, 'show'])->middleware('throttle:1000,1');
+Route::get('/genres_book/{id}', [GenresController::class, 'genresForBook'])->middleware('throttle:1000,1');
