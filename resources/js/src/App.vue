@@ -16,4 +16,9 @@ export default {
 h2 {
   font-size: 18px;
 }
+
+a {
+  color: black;
+  text-decoration: none;
+}
 </style>

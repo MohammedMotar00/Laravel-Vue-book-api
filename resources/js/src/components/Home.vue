@@ -4,7 +4,7 @@
 
     <div class="dropdown-list">
       <label for="api">choose api:</label>
-      <select name="api" id="api" v-model="value">
+      <select name="api" id="api" v-model="value" @change="onChange($event)">
         <option value="books">Books</option>
         <option value="authors">Authors</option>
         <option value="genres">Genres</option>
@@ -52,7 +52,7 @@ export default {
 
   data() {
     return {
-      value: "books",
+      value: localStorage.getItem("value") || "books",
 
       dataArr: [],
     };
@@ -61,9 +61,13 @@ export default {
   methods: {
     fetchData(value) {
       axios(`api/${value ?? this.value}`).then((res) => {
-        console.log(res.data);
         for (let data of res.data) this.dataArr.push(data);
       });
+    },
+
+    onChange(e) {
+      const value = e.target.value;
+      localStorage.setItem("value", e.target.value);
     },
   },
 
@@ -86,6 +90,9 @@ export default {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  // display: flex;
+  // flex-wrap: wrap;
   text-align: center;
 }
 </style>
