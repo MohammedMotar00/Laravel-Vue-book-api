@@ -8,12 +8,12 @@
 
       <v-spacer></v-spacer>
 
-      <v-toolbar-title class="text-uppercase d-flex justify-start">
+      <v-toolbar-title class="text-uppercase">
         <span class="green--text">Book</span>
         <span class="blue--text">API</span>
       </v-toolbar-title>
 
-      <!-- <v-spacer></v-spacer> -->
+      <v-spacer></v-spacer>
     </v-toolbar>
   </div>
 </template>

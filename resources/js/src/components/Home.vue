@@ -15,30 +15,86 @@
     </v-row>
     <!-- End of Dropdown menu -->
 
-    <div class="card-container">
-      <div v-for="data of dataArr" :key="data.id">
-        <div v-if="value == 'books'">
-          <Books
-            :id="data.id"
-            :description="data.description"
-            :isbn="data.isbn"
-            :title="data.title"
-          />
-        </div>
+    <v-container fluid>
+      <v-card class="red">
+        <v-row class="flex-wrap">
+          <v-col
+            v-for="data of dataArr"
+            :key="data.id"
+            cols="6"
+            sm="4"
+            md="3"
+            lg="2"
+          >
+            <Books
+              :id="data.id"
+              :description="data.description"
+              :isbn="data.isbn"
+              :title="data.title"
+            />
+          </v-col>
 
-        <div v-if="value == 'authors'">
-          <Authors
-            :id="data.id"
-            :name="data.name"
-            :biography="data.biography"
-          />
-        </div>
+          <v-col v-if="value == 'authors'" cols="5" sm="2">
+            <Authors
+              :id="data.id"
+              :name="data.name"
+              :biography="data.biography"
+            />
+          </v-col>
 
-        <div v-if="value == 'genres'">
-          <Genres :id="data.id" :name="data.name" />
-        </div>
-      </div>
-    </div>
+          <v-col v-if="value == 'genres'" cols="5" sm="2">
+            <Genres :id="data.id" :name="data.name" />
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-container>
+
+    <!-- <div class="card-container">
+      <v-container>
+        <v-card class="d-flex">
+          <v-row class="flex-wrap">
+            <div v-for="data of dataArr" :key="data.id">
+              <div v-if="value == 'books'">
+                <Books
+                  :id="data.id"
+                  :description="data.description"
+                  :isbn="data.isbn"
+                  :title="data.title"
+                />
+              </div>
+
+              <div v-if="value == 'authors'">
+                <Authors
+                  :id="data.id"
+                  :name="data.name"
+                  :biography="data.biography"
+                />
+              </div>
+
+              <div v-if="value == 'genres'">
+                <Genres :id="data.id" :name="data.name" />
+              </div>
+            </div>
+          </v-row>
+        </v-card>
+      </v-container>
+    </div> -->
+
+    <!-- <v-container>
+      <div></div>
+      <v-card>
+        <v-row>
+          <v-col>
+            <Books
+              :id="data.id"
+              :description="data.description"
+              :isbn="data.isbn"
+              :title="data.title"
+            />
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-container> -->
   </div>
 </template>
 
@@ -91,12 +147,12 @@ export default {
 <style lang="scss" scoped>
 .card-container {
   border: 1px solid blue;
-  display: grid;
-  gap: 20px;
-  grid-template-columns: repeat(4, 1fr);
-  justify-content: space-between;
+  // display: grid;
+  // gap: 20px;
+  // grid-template-columns: repeat(4, 1fr);
+  // justify-content: space-between;
   // display: flex;
   // flex-wrap: wrap;
-  text-align: center;
+  // text-align: center;
 }
 </style>

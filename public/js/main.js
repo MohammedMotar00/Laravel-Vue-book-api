@@ -2073,6 +2073,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Books",
   props: ["id", "description", "isbn", "title"]
@@ -2521,6 +2532,62 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2635,7 +2702,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".book-container[data-v-ff44afd2] {\n  border: 1px solid #ccc;\n  display: inline-flex;\n  flex-direction: column;\n  width: 200px;\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, "h2[data-v-ff44afd2] {\n  font-size: 16px;\n}\np[data-v-ff44afd2] {\n  font-size: 16px;\n}", ""]);
 
 // exports
 
@@ -2730,7 +2797,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".card-container[data-v-296ee69f] {\n  border: 1px solid blue;\n  display: grid;\n  gap: 20px;\n  grid-template-columns: repeat(4, 1fr);\n  justify-content: space-between;\n  text-align: center;\n}", ""]);
+exports.push([module.i, ".card-container[data-v-296ee69f] {\n  border: 1px solid blue;\n}", ""]);
 
 // exports
 
@@ -4208,24 +4275,47 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "router-link",
-    {
-      attrs: {
-        to: {
-          name: "Book",
-          params: { book_id: _vm.id }
-        }
-      }
-    },
+    "v-container",
+    { attrs: { fluid: "" } },
     [
-      _c("div", { staticClass: "book-container", attrs: { id: _vm.id } }, [
-        _c("h2", [_vm._v(_vm._s(_vm.title))]),
-        _vm._v(" "),
-        _vm.description
-          ? _c("p", [_vm._v(_vm._s(_vm.description.substring(0, 120) + "..."))])
-          : _vm._e()
-      ])
-    ]
+      _c(
+        "v-card",
+        { attrs: { to: { name: "Book", params: { book_id: _vm.id } } } },
+        [
+          _c(
+            "v-row",
+            { staticClass: "d-flex justify-center" },
+            [
+              _c(
+                "v-col",
+                { staticClass: "text-center", attrs: { cols: "10" } },
+                [
+                  _c(
+                    "v-icon",
+                    { staticClass: "mb-5", attrs: { "x-large": "" } },
+                    [_vm._v("mdi-book-open-page-variant")]
+                  ),
+                  _vm._v(" "),
+                  _c("h2", { staticClass: "mb-5" }, [
+                    _vm._v(_vm._s(_vm.title))
+                  ]),
+                  _vm._v(" "),
+                  _vm.description
+                    ? _c("p", [
+                        _vm._v(_vm._s(_vm.description.substring(0, 80) + "..."))
+                      ])
+                    : _vm._e()
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -4527,15 +4617,13 @@ var render = function() {
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
-          _c(
-            "v-toolbar-title",
-            { staticClass: "text-uppercase d-flex justify-start" },
-            [
-              _c("span", { staticClass: "green--text" }, [_vm._v("Book")]),
-              _vm._v(" "),
-              _c("span", { staticClass: "blue--text" }, [_vm._v("API")])
-            ]
-          )
+          _c("v-toolbar-title", { staticClass: "text-uppercase" }, [
+            _c("span", { staticClass: "green--text" }, [_vm._v("Book")]),
+            _vm._v(" "),
+            _c("span", { staticClass: "blue--text" }, [_vm._v("API")])
+          ]),
+          _vm._v(" "),
+          _c("v-spacer")
         ],
         1
       )
@@ -4605,53 +4693,75 @@ var render = function() {
       ),
       _vm._v(" "),
       _c(
-        "div",
-        { staticClass: "card-container" },
-        _vm._l(_vm.dataArr, function(data) {
-          return _c("div", { key: data.id }, [
-            _vm.value == "books"
-              ? _c(
-                  "div",
-                  [
-                    _c("Books", {
-                      attrs: {
-                        id: data.id,
-                        description: data.description,
-                        isbn: data.isbn,
-                        title: data.title
-                      }
-                    })
-                  ],
-                  1
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.value == "authors"
-              ? _c(
-                  "div",
-                  [
-                    _c("Authors", {
-                      attrs: {
-                        id: data.id,
-                        name: data.name,
-                        biography: data.biography
-                      }
-                    })
-                  ],
-                  1
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.value == "genres"
-              ? _c(
-                  "div",
-                  [_c("Genres", { attrs: { id: data.id, name: data.name } })],
-                  1
-                )
-              : _vm._e()
-          ])
-        }),
-        0
+        "v-container",
+        { attrs: { fluid: "" } },
+        [
+          _c(
+            "v-card",
+            { staticClass: "red" },
+            [
+              _c(
+                "v-row",
+                { staticClass: "flex-wrap" },
+                [
+                  _vm._l(_vm.dataArr, function(data) {
+                    return _c(
+                      "v-col",
+                      {
+                        key: data.id,
+                        attrs: { cols: "6", sm: "4", md: "3", lg: "2" }
+                      },
+                      [
+                        _c("Books", {
+                          attrs: {
+                            id: data.id,
+                            description: data.description,
+                            isbn: data.isbn,
+                            title: data.title
+                          }
+                        })
+                      ],
+                      1
+                    )
+                  }),
+                  _vm._v(" "),
+                  _vm.value == "authors"
+                    ? _c(
+                        "v-col",
+                        { attrs: { cols: "5", sm: "2" } },
+                        [
+                          _c("Authors", {
+                            attrs: {
+                              id: _vm.data.id,
+                              name: _vm.data.name,
+                              biography: _vm.data.biography
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.value == "genres"
+                    ? _c(
+                        "v-col",
+                        { attrs: { cols: "5", sm: "2" } },
+                        [
+                          _c("Genres", {
+                            attrs: { id: _vm.data.id, name: _vm.data.name }
+                          })
+                        ],
+                        1
+                      )
+                    : _vm._e()
+                ],
+                2
+              )
+            ],
+            1
+          )
+        ],
+        1
       )
     ],
     1
