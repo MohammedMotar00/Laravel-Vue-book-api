@@ -3,13 +3,17 @@
     <v-toolbar flat>
       <v-app-bar-nav-icon
         @click="drawer = !drawer"
-        class="grey--text"
+        class="blue--text d-sm-none"
       ></v-app-bar-nav-icon>
 
-      <v-toolbar-title class="text-uppercase grey--text">
-        <span class="font-weight-light">Todo</span>
-        <span>Ninja</span>
+      <v-spacer></v-spacer>
+
+      <v-toolbar-title class="text-uppercase d-flex justify-start">
+        <span class="green--text">Book</span>
+        <span class="blue--text">API</span>
       </v-toolbar-title>
+
+      <!-- <v-spacer></v-spacer> -->
     </v-toolbar>
   </div>
 </template>
@@ -17,6 +21,17 @@
 <script>
 export default {
   name: "Header",
+  data: () => ({
+    items: ["books", "authors", "genres"],
+    value: localStorage.getItem("APIvalue") || "books",
+    dataArr: [],
+  }),
+
+  methods: {
+    onChange(value) {
+      localStorage.setItem("APIvalue", value);
+    },
+  },
 };
 </script>
 

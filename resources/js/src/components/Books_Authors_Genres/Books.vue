@@ -7,7 +7,7 @@
   >
     <div class="book-container" :id="id">
       <h2>{{ title }}</h2>
-      <p>{{ description.substring(0, 120) + "..." }}</p>
+      <p v-if="description">{{ description.substring(0, 120) + "..." }}</p>
     </div>
   </router-link>
 </template>

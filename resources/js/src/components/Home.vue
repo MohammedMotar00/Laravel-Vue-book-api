@@ -1,15 +1,19 @@
 <template>
   <div class="home">
-    <header>Welcome to book api</header>
-
-    <div class="dropdown-list">
-      <label for="api">choose api:</label>
-      <select name="api" id="api" v-model="value" @change="onChange($event)">
-        <option value="books">Books</option>
-        <option value="authors">Authors</option>
-        <option value="genres">Genres</option>
-      </select>
-    </div>
+    <!-- Dropdown menu -->
+    <v-row class="d-flex justify-end">
+      <v-col class="mt-3" sm="4" cols="5">
+        <v-select
+          :items="items"
+          item-value="api"
+          item-text="api"
+          label="Choose API"
+          v-model="value"
+          @change="onChange($event)"
+        ></v-select>
+      </v-col>
+    </v-row>
+    <!-- End of Dropdown menu -->
 
     <div class="card-container">
       <div v-for="data of dataArr" :key="data.id">
@@ -21,6 +25,7 @@
             :title="data.title"
           />
         </div>
+
         <div v-if="value == 'authors'">
           <Authors
             :id="data.id"
@@ -28,6 +33,7 @@
             :biography="data.biography"
           />
         </div>
+
         <div v-if="value == 'genres'">
           <Genres :id="data.id" :name="data.name" />
         </div>
@@ -50,29 +56,27 @@ export default {
     Genres,
   },
 
-  data() {
-    return {
-      value: localStorage.getItem("value") || "books",
-
-      dataArr: [],
-    };
-  },
+  data: () => ({
+    items: [{ api: "books" }, { api: "authors" }, { api: "genres" }],
+    value: localStorage.getItem("APIvalue") || "books",
+    dataArr: [],
+  }),
 
   methods: {
     fetchData(value) {
-      axios(`api/${value ?? this.value}`).then((res) => {
+      axios(`api/${value}`).then((res) => {
         for (let data of res.data) this.dataArr.push(data);
+        console.log(res.data);
       });
     },
 
-    onChange(e) {
-      const value = e.target.value;
-      localStorage.setItem("value", e.target.value);
+    onChange(value) {
+      localStorage.setItem("APIvalue", value);
     },
   },
 
   created() {
-    this.fetchData();
+    this.fetchData(this.value);
   },
 
   watch: {

@@ -7,7 +7,7 @@
   >
     <div class="authors-container" :id="id">
       <h2>{{ name }}</h2>
-      <p>
+      <p v-if="biography">
         {{
           biography.length > 10
             ? biography.substring(0, 120) + "..."

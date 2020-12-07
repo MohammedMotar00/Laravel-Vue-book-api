@@ -1,7 +1,6 @@
 <template>
   <v-app>
     <Header />
-    <v-btn color="success">text</v-btn>
 
     <v-main class="mx-4 mb-4">
       <router-view />
