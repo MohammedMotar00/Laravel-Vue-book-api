@@ -1,9 +1,20 @@
 <template>
-  <router-link :to="{ name: 'Genre', params: { genre_id: id } }">
-    <div class="genres-container" :id="id">
-      <h2 v-if="name">{{ name }}</h2>
-    </div>
-  </router-link>
+  <v-container fluid>
+    <v-hover v-slot="{ hover }">
+      <v-card
+        :to="{ name: 'Genre', params: { genre_id: id } }"
+        :class="{ 'on-hover': hover }"
+        :elevation="hover ? 12 : 2"
+      >
+        <v-row class="d-flex justify-center">
+          <v-col class="text-center" cols="10">
+            <v-icon x-large class="mb-5">mdi-view-list</v-icon>
+            <h2 class="mb-5">{{ name }}</h2>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-hover>
+  </v-container>
 </template>
 
 <script>
@@ -14,8 +25,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.genres-container {
-  border: 1px solid #ccc;
-  max-width: 200px;
+.v-card {
+  transition: opacity 0.4s ease-in-out;
+
+  &:not(.on-hover) {
+    opacity: 0.7;
+  }
 }
 </style>

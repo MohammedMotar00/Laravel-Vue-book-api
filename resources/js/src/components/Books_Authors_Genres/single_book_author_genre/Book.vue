@@ -1,37 +1,79 @@
 <template>
-  <div class="book">
-    <div class="book-container">
-      <div class="single-book" :key="book_obj.id">
-        <h2>{{ book_obj.title }}</h2>
-        <h2>id:{{ book_obj.id }}</h2>
-      </div>
-      <div class="description">
-        <h2>Description:</h2>
-        <p>{{ book_obj.description }}</p>
-      </div>
-    </div>
+  <v-container fluid>
+    <v-card class="light-blue lighten-4">
+      <v-row class="d-flex flex-wrap">
+        <v-col cols="12" class="d-flex flex-wrap">
+          <v-col cols="12" sm="4" md="4" lg="5">
+            <v-card class="pa-5 text-center">
+              <v-icon x-large class="mb-5">mdi-book-open-page-variant</v-icon>
+              <h2 class="mb-5">{{ book_obj.title }}</h2>
+            </v-card>
+          </v-col>
 
-    <hr />
+          <v-col class="flex-column" cols="6" sm="4" md="4" lg="3">
+            <h2>Genres:</h2>
+            <v-col
+              cols="12"
+              class="mx-0 mt-3 flex-column pa-0"
+              v-for="data in genreData"
+              :key="data.id"
+            >
+              <v-hover v-slot="{ hover }">
+                <v-btn
+                  class="btn"
+                  color="success"
+                  :to="{ name: 'Genre', params: { genre_id: data.id } }"
+                  :class="{ 'on-hover': hover }"
+                  :elevation="hover ? 12 : 2"
+                  >{{ data.name }}</v-btn
+                >
+              </v-hover>
+            </v-col>
+          </v-col>
 
-    <div>
-      <h1>Author:</h1>
-      <div v-for="data in authorData" :key="data.id" class="author">
-        <router-link :to="{ name: 'Author', params: { author_id: data.id } }">
-          <h2>{{ data.name }}</h2>
-          <p>{{ data.biography }}</p>
-        </router-link>
-      </div>
-    </div>
+          <v-spacer></v-spacer>
 
-    <div>
-      <h1>Genres:</h1>
-      <div v-for="data in genreData" :key="data.id" class="author">
-        <router-link :to="{ name: 'Genre', params: { genre_id: data.id } }">
-          <h2>{{ data.name }}</h2>
-        </router-link>
-      </div>
-    </div>
-  </div>
+          <v-col
+            cols="6"
+            sm="4"
+            md="4"
+            lg="4"
+            v-for="data in authorData"
+            :key="data.id"
+            class="text-center"
+          >
+            <v-hover v-slot="{ hover }">
+              <v-card
+                class="pa-4 author"
+                :to="{ name: 'Author', params: { author_id: data.id } }"
+                :class="{ 'on-hover': hover }"
+                :elevation="hover ? 12 : 2"
+              >
+                <h2>Author:</h2>
+                <h2>{{ data.name }}</h2>
+                <p v-if="data.biography">
+                  {{
+                    data.biography.length > 10
+                      ? data.biography.substring(0, 80) + "..."
+                      : data.biography
+                  }}
+                </p>
+              </v-card>
+            </v-hover>
+          </v-col>
+
+          <v-divider inset class="ma-5"></v-divider>
+
+          <v-col cols="12" class="text-center mt-3">
+            <v-card class="pa-4">
+              <h2 class="mb-3">Description:</h2>
+              <p>{{ book_obj.description }}</p>
+            </v-card>
+          </v-col>
+        </v-col>
+      </v-row>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
@@ -84,25 +126,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.book {
-  .book-container {
-    border: 1px solid red;
+.author {
+  transition: opacity 0.4s ease-in-out;
 
-    .single-book {
-      border: 1px solid;
-      width: 200px;
-      height: 300px;
-    }
-
-    .description {
-      border: 1px solid green;
-    }
+  &:not(.on-hover) {
+    opacity: 0.7;
   }
+}
 
-  .author {
-    border: 1px solid;
-    max-width: 400px;
-    max-height: 300px;
+@media (max-width: 450px) {
+  .btn {
+    font-size: 13px !important;
+    padding: 6px !important;
+  }
+}
+
+@media (max-width: 320px) {
+  .btn {
+    font-size: 10px !important;
+    padding: 6px !important;
   }
 }
 </style>

@@ -2043,6 +2043,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Authors",
   props: ["id", "biography", "name"]
@@ -2079,11 +2085,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Books",
   props: ["id", "description", "isbn", "title"]
@@ -2100,6 +2101,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2225,6 +2237,48 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -2544,50 +2598,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2664,7 +2674,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "h2 {\n  font-size: 18px;\n}\na {\n  color: black;\n  text-decoration: none;\n}", ""]);
+exports.push([module.i, "@media (max-width: 1100px) {\nh2 {\n    font-size: 20px;\n}\n}\n@media (max-width: 680px) {\nh2 {\n    font-size: 18px;\n}\n}", ""]);
 
 // exports
 
@@ -2683,7 +2693,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".authors-container[data-v-5240f575] {\n  border: 1px solid #ccc;\n  max-width: 200px;\n}", ""]);
+exports.push([module.i, ".v-card[data-v-5240f575] {\n  transition: opacity 0.3s ease-in-out;\n}\n.v-card[data-v-5240f575]:not(.on-hover) {\n  opacity: 0.7;\n}", ""]);
 
 // exports
 
@@ -2702,7 +2712,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "h2[data-v-ff44afd2] {\n  font-size: 16px;\n}\np[data-v-ff44afd2] {\n  font-size: 16px;\n}", ""]);
+exports.push([module.i, ".v-card[data-v-ff44afd2] {\n  transition: opacity 0.4s ease-in-out;\n}\n.v-card[data-v-ff44afd2]:not(.on-hover) {\n  opacity: 0.7;\n}", ""]);
 
 // exports
 
@@ -2721,7 +2731,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".genres-container[data-v-7c4c74b3] {\n  border: 1px solid #ccc;\n  max-width: 200px;\n}", ""]);
+exports.push([module.i, ".v-card[data-v-7c4c74b3] {\n  transition: opacity 0.4s ease-in-out;\n}\n.v-card[data-v-7c4c74b3]:not(.on-hover) {\n  opacity: 0.7;\n}", ""]);
 
 // exports
 
@@ -2759,7 +2769,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, ".book .book-container[data-v-af478852] {\n  border: 1px solid red;\n}\n.book .book-container .single-book[data-v-af478852] {\n  border: 1px solid;\n  width: 200px;\n  height: 300px;\n}\n.book .book-container .description[data-v-af478852] {\n  border: 1px solid green;\n}\n.book .author[data-v-af478852] {\n  border: 1px solid;\n  max-width: 400px;\n  max-height: 300px;\n}", ""]);
+exports.push([module.i, ".author[data-v-af478852] {\n  transition: opacity 0.4s ease-in-out;\n}\n.author[data-v-af478852]:not(.on-hover) {\n  opacity: 0.7;\n}\n@media (max-width: 450px) {\n.btn[data-v-af478852] {\n    font-size: 13px !important;\n    padding: 6px !important;\n}\n}\n@media (max-width: 320px) {\n.btn[data-v-af478852] {\n    font-size: 10px !important;\n    padding: 6px !important;\n}\n}", ""]);
 
 // exports
 
@@ -2779,25 +2789,6 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 // module
 exports.push([module.i, ".books .book-container[data-v-13a7b285] {\n  margin-top: 30px;\n  border: 1px solid #ccc;\n  display: inline-flex;\n  flex-direction: column;\n  width: 200px;\n  cursor: pointer;\n}", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/Home.vue?vue&type=style&index=0&id=296ee69f&lang=scss&scoped=true&":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/components/Home.vue?vue&type=style&index=0&id=296ee69f&lang=scss&scoped=true& ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, ".card-container[data-v-296ee69f] {\n  border: 1px solid blue;\n}", ""]);
 
 // exports
 
@@ -3560,36 +3551,6 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/Home.vue?vue&type=style&index=0&id=296ee69f&lang=scss&scoped=true&":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/components/Home.vue?vue&type=style&index=0&id=296ee69f&lang=scss&scoped=true& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-
-var content = __webpack_require__(/*! !../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=style&index=0&id=296ee69f&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/Home.vue?vue&type=style&index=0&id=296ee69f&lang=scss&scoped=true&");
-
-if(typeof content === 'string') content = [[module.i, content, '']];
-
-var transform;
-var insertInto;
-
-
-
-var options = {"hmr":true}
-
-options.transform = transform
-options.insertInto = undefined;
-
-var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
-
-if(content.locals) module.exports = content.locals;
-
-if(false) {}
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/lib/addStyles.js":
 /*!****************************************************!*\
   !*** ./node_modules/style-loader/lib/addStyles.js ***!
@@ -4222,34 +4183,74 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "router-link",
-    {
-      attrs: {
-        to: {
-          name: "Author",
-          params: { author_id: _vm.id }
-        }
-      }
-    },
+    "v-container",
+    { attrs: { fluid: "" } },
     [
-      _c("div", { staticClass: "authors-container", attrs: { id: _vm.id } }, [
-        _c("h2", [_vm._v(_vm._s(_vm.name))]),
-        _vm._v(" "),
-        _vm.biography
-          ? _c("p", [
-              _vm._v(
-                "\n      " +
-                  _vm._s(
-                    _vm.biography.length > 10
-                      ? _vm.biography.substring(0, 120) + "..."
-                      : _vm.biography
-                  ) +
-                  "\n    "
-              )
-            ])
-          : _vm._e()
-      ])
-    ]
+      _c("v-hover", {
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function(ref) {
+              var hover = ref.hover
+              return [
+                _c(
+                  "v-card",
+                  {
+                    class: { "on-hover": hover },
+                    attrs: {
+                      to: { name: "Author", params: { author_id: _vm.id } },
+                      elevation: hover ? 12 : 2
+                    }
+                  },
+                  [
+                    _c(
+                      "v-row",
+                      { staticClass: "d-flex justify-center" },
+                      [
+                        _c(
+                          "v-col",
+                          { staticClass: "text-center", attrs: { cols: "10" } },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mb-5", attrs: { "x-large": "" } },
+                              [_vm._v("mdi-account-edit")]
+                            ),
+                            _vm._v(" "),
+                            _c("h2", { staticClass: "mb-5" }, [
+                              _vm._v(_vm._s(_vm.name))
+                            ]),
+                            _vm._v(" "),
+                            _vm.biography
+                              ? _c("p", [
+                                  _vm._v(
+                                    "\n            " +
+                                      _vm._s(
+                                        _vm.biography.length > 10
+                                          ? _vm.biography.substring(0, 80) +
+                                              "..."
+                                          : _vm.biography
+                                      ) +
+                                      "\n          "
+                                  )
+                                ])
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            }
+          }
+        ])
+      })
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -4278,42 +4279,64 @@ var render = function() {
     "v-container",
     { attrs: { fluid: "" } },
     [
-      _c(
-        "v-card",
-        { attrs: { to: { name: "Book", params: { book_id: _vm.id } } } },
-        [
-          _c(
-            "v-row",
-            { staticClass: "d-flex justify-center" },
-            [
-              _c(
-                "v-col",
-                { staticClass: "text-center", attrs: { cols: "10" } },
-                [
-                  _c(
-                    "v-icon",
-                    { staticClass: "mb-5", attrs: { "x-large": "" } },
-                    [_vm._v("mdi-book-open-page-variant")]
-                  ),
-                  _vm._v(" "),
-                  _c("h2", { staticClass: "mb-5" }, [
-                    _vm._v(_vm._s(_vm.title))
-                  ]),
-                  _vm._v(" "),
-                  _vm.description
-                    ? _c("p", [
-                        _vm._v(_vm._s(_vm.description.substring(0, 80) + "..."))
-                      ])
-                    : _vm._e()
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      )
+      _c("v-hover", {
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function(ref) {
+              var hover = ref.hover
+              return [
+                _c(
+                  "v-card",
+                  {
+                    class: { "on-hover": hover },
+                    attrs: {
+                      to: { name: "Book", params: { book_id: _vm.id } },
+                      elevation: hover ? 12 : 2
+                    }
+                  },
+                  [
+                    _c(
+                      "v-row",
+                      { staticClass: "d-flex justify-center" },
+                      [
+                        _c(
+                          "v-col",
+                          { staticClass: "text-center", attrs: { cols: "10" } },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mb-5", attrs: { "x-large": "" } },
+                              [_vm._v("mdi-book-open-page-variant")]
+                            ),
+                            _vm._v(" "),
+                            _c("h2", { staticClass: "mb-5" }, [
+                              _vm._v(_vm._s(_vm.title))
+                            ]),
+                            _vm._v(" "),
+                            _vm.description
+                              ? _c("p", [
+                                  _vm._v(
+                                    _vm._s(
+                                      _vm.description.substring(0, 80) + "..."
+                                    )
+                                  )
+                                ])
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            }
+          }
+        ])
+      })
     ],
     1
   )
@@ -4341,13 +4364,59 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "router-link",
-    { attrs: { to: { name: "Genre", params: { genre_id: _vm.id } } } },
+    "v-container",
+    { attrs: { fluid: "" } },
     [
-      _c("div", { staticClass: "genres-container", attrs: { id: _vm.id } }, [
-        _vm.name ? _c("h2", [_vm._v(_vm._s(_vm.name))]) : _vm._e()
-      ])
-    ]
+      _c("v-hover", {
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function(ref) {
+              var hover = ref.hover
+              return [
+                _c(
+                  "v-card",
+                  {
+                    class: { "on-hover": hover },
+                    attrs: {
+                      to: { name: "Genre", params: { genre_id: _vm.id } },
+                      elevation: hover ? 12 : 2
+                    }
+                  },
+                  [
+                    _c(
+                      "v-row",
+                      { staticClass: "d-flex justify-center" },
+                      [
+                        _c(
+                          "v-col",
+                          { staticClass: "text-center", attrs: { cols: "10" } },
+                          [
+                            _c(
+                              "v-icon",
+                              { staticClass: "mb-5", attrs: { "x-large": "" } },
+                              [_vm._v("mdi-view-list")]
+                            ),
+                            _vm._v(" "),
+                            _c("h2", { staticClass: "mb-5" }, [
+                              _vm._v(_vm._s(_vm.name))
+                            ])
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            }
+          }
+        ])
+      })
+    ],
+    1
   )
 }
 var staticRenderFns = []
@@ -4439,81 +4508,203 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "book" }, [
-    _c("div", { staticClass: "book-container" }, [
-      _c("div", { key: _vm.book_obj.id, staticClass: "single-book" }, [
-        _c("h2", [_vm._v(_vm._s(_vm.book_obj.title))]),
-        _vm._v(" "),
-        _c("h2", [_vm._v("id:" + _vm._s(_vm.book_obj.id))])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "description" }, [
-        _c("h2", [_vm._v("Description:")]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.book_obj.description))])
-      ])
-    ]),
-    _vm._v(" "),
-    _c("hr"),
-    _vm._v(" "),
-    _c(
-      "div",
-      [
-        _c("h1", [_vm._v("Author:")]),
-        _vm._v(" "),
-        _vm._l(_vm.authorData, function(data) {
-          return _c(
-            "div",
-            { key: data.id, staticClass: "author" },
+  return _c(
+    "v-container",
+    { attrs: { fluid: "" } },
+    [
+      _c(
+        "v-card",
+        { staticClass: "light-blue lighten-4" },
+        [
+          _c(
+            "v-row",
+            { staticClass: "d-flex flex-wrap" },
             [
               _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: { name: "Author", params: { author_id: data.id } }
-                  }
-                },
+                "v-col",
+                { staticClass: "d-flex flex-wrap", attrs: { cols: "12" } },
                 [
-                  _c("h2", [_vm._v(_vm._s(data.name))]),
+                  _c(
+                    "v-col",
+                    { attrs: { cols: "12", sm: "4", md: "4", lg: "5" } },
+                    [
+                      _c(
+                        "v-card",
+                        { staticClass: "pa-5 text-center" },
+                        [
+                          _c(
+                            "v-icon",
+                            { staticClass: "mb-5", attrs: { "x-large": "" } },
+                            [_vm._v("mdi-book-open-page-variant")]
+                          ),
+                          _vm._v(" "),
+                          _c("h2", { staticClass: "mb-5" }, [
+                            _vm._v(_vm._s(_vm.book_obj.title))
+                          ])
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
                   _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(data.biography))])
-                ]
+                  _c(
+                    "v-col",
+                    {
+                      staticClass: "flex-column",
+                      attrs: { cols: "6", sm: "4", md: "4", lg: "3" }
+                    },
+                    [
+                      _c("h2", [_vm._v("Genres:")]),
+                      _vm._v(" "),
+                      _vm._l(_vm.genreData, function(data) {
+                        return _c(
+                          "v-col",
+                          {
+                            key: data.id,
+                            staticClass: "mx-0 mt-3 flex-column pa-0",
+                            attrs: { cols: "12" }
+                          },
+                          [
+                            _c("v-hover", {
+                              scopedSlots: _vm._u(
+                                [
+                                  {
+                                    key: "default",
+                                    fn: function(ref) {
+                                      var hover = ref.hover
+                                      return [
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            staticClass: "btn",
+                                            class: { "on-hover": hover },
+                                            attrs: {
+                                              color: "success",
+                                              to: {
+                                                name: "Genre",
+                                                params: { genre_id: data.id }
+                                              },
+                                              elevation: hover ? 12 : 2
+                                            }
+                                          },
+                                          [_vm._v(_vm._s(data.name))]
+                                        )
+                                      ]
+                                    }
+                                  }
+                                ],
+                                null,
+                                true
+                              )
+                            })
+                          ],
+                          1
+                        )
+                      })
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c("v-spacer"),
+                  _vm._v(" "),
+                  _vm._l(_vm.authorData, function(data) {
+                    return _c(
+                      "v-col",
+                      {
+                        key: data.id,
+                        staticClass: "text-center",
+                        attrs: { cols: "6", sm: "4", md: "4", lg: "4" }
+                      },
+                      [
+                        _c("v-hover", {
+                          scopedSlots: _vm._u(
+                            [
+                              {
+                                key: "default",
+                                fn: function(ref) {
+                                  var hover = ref.hover
+                                  return [
+                                    _c(
+                                      "v-card",
+                                      {
+                                        staticClass: "pa-4 author",
+                                        class: { "on-hover": hover },
+                                        attrs: {
+                                          to: {
+                                            name: "Author",
+                                            params: { author_id: data.id }
+                                          },
+                                          elevation: hover ? 12 : 2
+                                        }
+                                      },
+                                      [
+                                        _c("h2", [_vm._v("Author:")]),
+                                        _vm._v(" "),
+                                        _c("h2", [_vm._v(_vm._s(data.name))]),
+                                        _vm._v(" "),
+                                        data.biography
+                                          ? _c("p", [
+                                              _vm._v(
+                                                "\n                " +
+                                                  _vm._s(
+                                                    data.biography.length > 10
+                                                      ? data.biography.substring(
+                                                          0,
+                                                          80
+                                                        ) + "..."
+                                                      : data.biography
+                                                  ) +
+                                                  "\n              "
+                                              )
+                                            ])
+                                          : _vm._e()
+                                      ]
+                                    )
+                                  ]
+                                }
+                              }
+                            ],
+                            null,
+                            true
+                          )
+                        })
+                      ],
+                      1
+                    )
+                  }),
+                  _vm._v(" "),
+                  _c("v-divider", {
+                    staticClass: "ma-5",
+                    attrs: { inset: "" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "v-col",
+                    { staticClass: "text-center mt-3", attrs: { cols: "12" } },
+                    [
+                      _c("v-card", { staticClass: "pa-4" }, [
+                        _c("h2", { staticClass: "mb-3" }, [
+                          _vm._v("Description:")
+                        ]),
+                        _vm._v(" "),
+                        _c("p", [_vm._v(_vm._s(_vm.book_obj.description))])
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                2
               )
             ],
             1
           )
-        })
-      ],
-      2
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      [
-        _c("h1", [_vm._v("Genres:")]),
-        _vm._v(" "),
-        _vm._l(_vm.genreData, function(data) {
-          return _c(
-            "div",
-            { key: data.id, staticClass: "author" },
-            [
-              _c(
-                "router-link",
-                {
-                  attrs: {
-                    to: { name: "Genre", params: { genre_id: data.id } }
-                  }
-                },
-                [_c("h2", [_vm._v(_vm._s(data.name))])]
-              )
-            ],
-            1
-          )
-        })
-      ],
-      2
-    )
-  ])
+        ],
+        1
+      )
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -4606,15 +4797,6 @@ var render = function() {
         "v-toolbar",
         { attrs: { flat: "" } },
         [
-          _c("v-app-bar-nav-icon", {
-            staticClass: "blue--text d-sm-none",
-            on: {
-              click: function($event) {
-                _vm.drawer = !_vm.drawer
-              }
-            }
-          }),
-          _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
           _c("v-toolbar-title", { staticClass: "text-uppercase" }, [
@@ -4698,64 +4880,68 @@ var render = function() {
         [
           _c(
             "v-card",
-            { staticClass: "red" },
+            { staticClass: "light-blue lighten-4" },
             [
               _c(
                 "v-row",
-                { staticClass: "flex-wrap" },
-                [
-                  _vm._l(_vm.dataArr, function(data) {
-                    return _c(
-                      "v-col",
-                      {
-                        key: data.id,
-                        attrs: { cols: "6", sm: "4", md: "3", lg: "2" }
-                      },
-                      [
-                        _c("Books", {
-                          attrs: {
-                            id: data.id,
-                            description: data.description,
-                            isbn: data.isbn,
-                            title: data.title
-                          }
-                        })
-                      ],
-                      1
-                    )
-                  }),
-                  _vm._v(" "),
-                  _vm.value == "authors"
-                    ? _c(
-                        "v-col",
-                        { attrs: { cols: "5", sm: "2" } },
-                        [
-                          _c("Authors", {
-                            attrs: {
-                              id: _vm.data.id,
-                              name: _vm.data.name,
-                              biography: _vm.data.biography
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.value == "genres"
-                    ? _c(
-                        "v-col",
-                        { attrs: { cols: "5", sm: "2" } },
-                        [
-                          _c("Genres", {
-                            attrs: { id: _vm.data.id, name: _vm.data.name }
-                          })
-                        ],
-                        1
-                      )
-                    : _vm._e()
-                ],
-                2
+                { staticClass: "flex-wrap", attrs: { "no-gutters": "" } },
+                _vm._l(_vm.dataArr, function(data) {
+                  return _c(
+                    "v-col",
+                    {
+                      key: data.id,
+                      staticClass: "px-1",
+                      attrs: { cols: "12", sm: "6", md: "3", xl: "2" }
+                    },
+                    [
+                      _vm.value == "books"
+                        ? _c(
+                            "div",
+                            [
+                              _c("Books", {
+                                attrs: {
+                                  id: data.id,
+                                  description: data.description,
+                                  isbn: data.isbn,
+                                  title: data.title
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.value == "authors"
+                        ? _c(
+                            "div",
+                            [
+                              _c("Authors", {
+                                attrs: {
+                                  id: data.id,
+                                  name: data.name,
+                                  biography: data.biography
+                                }
+                              })
+                            ],
+                            1
+                          )
+                        : _vm._e(),
+                      _vm._v(" "),
+                      _vm.value == "genres"
+                        ? _c(
+                            "div",
+                            [
+                              _c("Genres", {
+                                attrs: { id: data.id, name: data.name }
+                              })
+                            ],
+                            1
+                          )
+                        : _vm._e()
+                    ]
+                  )
+                }),
+                1
               )
             ],
             1
@@ -64704,9 +64890,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Home_vue_vue_type_template_id_296ee69f_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Home.vue?vue&type=template&id=296ee69f&scoped=true& */ "./resources/js/src/components/Home.vue?vue&type=template&id=296ee69f&scoped=true&");
 /* harmony import */ var _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Home.vue?vue&type=script&lang=js& */ "./resources/js/src/components/Home.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _Home_vue_vue_type_style_index_0_id_296ee69f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Home.vue?vue&type=style&index=0&id=296ee69f&lang=scss&scoped=true& */ "./resources/js/src/components/Home.vue?vue&type=style&index=0&id=296ee69f&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -64714,7 +64898,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
   _Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _Home_vue_vue_type_template_id_296ee69f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _Home_vue_vue_type_template_id_296ee69f_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -64743,22 +64927,6 @@ component.options.__file = "resources/js/src/components/Home.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/Home.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
-
-/***/ }),
-
-/***/ "./resources/js/src/components/Home.vue?vue&type=style&index=0&id=296ee69f&lang=scss&scoped=true&":
-/*!********************************************************************************************************!*\
-  !*** ./resources/js/src/components/Home.vue?vue&type=style&index=0&id=296ee69f&lang=scss&scoped=true& ***!
-  \********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_style_index_0_id_296ee69f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--7-2!../../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../../node_modules/vue-loader/lib??vue-loader-options!./Home.vue?vue&type=style&index=0&id=296ee69f&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/Home.vue?vue&type=style&index=0&id=296ee69f&lang=scss&scoped=true&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_style_index_0_id_296ee69f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_style_index_0_id_296ee69f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_style_index_0_id_296ee69f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Home_vue_vue_type_style_index_0_id_296ee69f_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
 
 /***/ }),
 

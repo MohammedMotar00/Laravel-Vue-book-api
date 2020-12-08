@@ -18,12 +18,15 @@ export default {
 </script>
 
 <style lang="scss">
-h2 {
-  font-size: 18px;
+@media (max-width: 1100px) {
+  h2 {
+    font-size: 20px;
+  }
 }
 
-a {
-  color: black;
-  text-decoration: none;
+@media (max-width: 680px) {
+  h2 {
+    font-size: 18px;
+  }
 }
 </style>

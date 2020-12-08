@@ -1,21 +1,27 @@
 <template>
-  <router-link
-    :to="{
-      name: 'Author',
-      params: { author_id: id },
-    }"
-  >
-    <div class="authors-container" :id="id">
-      <h2>{{ name }}</h2>
-      <p v-if="biography">
-        {{
-          biography.length > 10
-            ? biography.substring(0, 120) + "..."
-            : biography
-        }}
-      </p>
-    </div>
-  </router-link>
+  <v-container fluid>
+    <v-hover v-slot="{ hover }">
+      <v-card
+        :to="{ name: 'Author', params: { author_id: id } }"
+        :class="{ 'on-hover': hover }"
+        :elevation="hover ? 12 : 2"
+      >
+        <v-row class="d-flex justify-center">
+          <v-col class="text-center" cols="10">
+            <v-icon x-large class="mb-5">mdi-account-edit</v-icon>
+            <h2 class="mb-5">{{ name }}</h2>
+            <p v-if="biography">
+              {{
+                biography.length > 10
+                  ? biography.substring(0, 80) + "..."
+                  : biography
+              }}
+            </p>
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-hover>
+  </v-container>
 </template>
 
 <script>
@@ -26,8 +32,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.authors-container {
-  border: 1px solid #ccc;
-  max-width: 200px;
+.v-card {
+  transition: opacity 0.3s ease-in-out;
+
+  &:not(.on-hover) {
+    opacity: 0.7;
+  }
 }
 </style>
