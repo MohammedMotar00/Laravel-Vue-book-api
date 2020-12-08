@@ -10,31 +10,36 @@
             </v-card>
           </v-col>
 
-          <v-col class="flex-column" cols="6" sm="4" md="4" lg="3">
-            <h2>Genres:</h2>
-            <v-col
-              cols="12"
-              class="mx-0 mt-3 flex-column pa-0"
-              v-for="data in genreData"
-              :key="data.id"
+          <v-col
+            class="text-sm-start text-center"
+            cols="12"
+            sm="4"
+            md="4"
+            lg="3"
+          >
+            <h2 class="">Genres:</h2>
+            <v-row
+              class="genre-row d-flex flex-sm-column align-sm-start align-center justify-space-between flex-wrap"
             >
-              <v-hover v-slot="{ hover }">
-                <v-btn
-                  class="btn"
-                  color="success"
-                  :to="{ name: 'Genre', params: { genre_id: data.id } }"
-                  :class="{ 'on-hover': hover }"
-                  :elevation="hover ? 12 : 2"
-                  >{{ data.name }}</v-btn
-                >
-              </v-hover>
-            </v-col>
+              <v-col v-for="data in genreData" :key="data.id">
+                <v-hover v-slot="{ hover }" class="btn-flex">
+                  <v-btn
+                    class="btn"
+                    color="success"
+                    :to="{ name: 'Genre', params: { genre_id: data.id } }"
+                    :class="{ 'on-hover': hover }"
+                    :elevation="hover ? 12 : 2"
+                    >{{ data.name }}</v-btn
+                  >
+                </v-hover>
+              </v-col>
+            </v-row>
           </v-col>
 
           <v-spacer></v-spacer>
 
           <v-col
-            cols="6"
+            cols="12"
             sm="4"
             md="4"
             lg="4"
@@ -49,7 +54,7 @@
                 :class="{ 'on-hover': hover }"
                 :elevation="hover ? 12 : 2"
               >
-                <h2>Author:</h2>
+                <h2 class="mb-2">Author:</h2>
                 <h2>{{ data.name }}</h2>
                 <p v-if="data.biography">
                   {{
@@ -127,24 +132,23 @@ export default {
 
 <style lang="scss" scoped>
 .author {
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0.7;
 
   &:not(.on-hover) {
-    opacity: 0.7;
+    opacity: 1;
   }
 }
 
-@media (max-width: 450px) {
-  .btn {
-    font-size: 13px !important;
-    padding: 6px !important;
+@media (max-width: 600px) {
+  .btn-flex {
+    display: flex;
   }
 }
 
-@media (max-width: 320px) {
-  .btn {
-    font-size: 10px !important;
-    padding: 6px !important;
+@media (max-width: 520px) {
+  .genre-row {
+    flex-direction: column;
   }
 }
 </style>

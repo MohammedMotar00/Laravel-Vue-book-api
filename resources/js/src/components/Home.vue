@@ -2,7 +2,7 @@
   <div class="home">
     <!-- Dropdown menu -->
     <v-row class="d-flex justify-end">
-      <v-col class="mt-3" sm="4" cols="5">
+      <v-col class="mt-3" lg="4" md="5" sm="6" cols="12">
         <v-select
           :items="items"
           item-value="api"

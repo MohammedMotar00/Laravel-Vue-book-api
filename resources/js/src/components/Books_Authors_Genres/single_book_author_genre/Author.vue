@@ -1,26 +1,48 @@
 <template>
-  <div class="author">
-    <div class="author-container" :key="author_obj.id">
-      <div class="author-name">
-        <h2>{{ author_obj.name }}</h2>
-      </div>
-      <div class="author-biography">
-        <p>{{ author_obj.biography }}</p>
-      </div>
-    </div>
+  <v-container fluid>
+    <v-card class="light-blue lighten-4">
+      <v-row class="d-flex flex-wrap">
+        <v-col cols="12" class="d-flex flex-wrap">
+          <v-col cols="12">
+            <v-card class="pa-5 text-center">
+              <v-icon x-large class="mb-5">mdi-account-edit</v-icon>
+              <h2 class="mb-2">{{ author_obj.name }}</h2>
+              <p>{{ author_obj.biography }}</p>
+            </v-card>
+          </v-col>
 
-    <hr />
+          <v-divider inset class="ma-5"></v-divider>
 
-    <div>
-      <h1>Books:</h1>
-      <div v-for="data in bookData" :key="data.id" class="book-container">
-        <router-link :to="{ name: 'Book', params: { book_id: data.id } }">
-          <h2>{{ data.title }}</h2>
-          <p>{{ data.description.substring(0, 120) + "..." }}</p>
-        </router-link>
-      </div>
-    </div>
-  </div>
+          <v-col cols="12" class="d-flex justify-center flex-wrap">
+            <v-col
+              cols="12"
+              sm="6"
+              v-for="data in bookData"
+              :key="data.id"
+              class="text-center"
+            >
+              <v-hover v-slot="{ hover }">
+                <v-card
+                  :to="{ name: 'Book', params: { book_id: data.id } }"
+                  :class="{ 'on-hover': hover }"
+                  :elevation="hover ? 12 : 2"
+                  class="pa-6 book"
+                >
+                  <v-icon x-large class="mb-5"
+                    >mdi-book-open-page-variant</v-icon
+                  >
+                  <h2 class="mb-5">{{ data.title }}</h2>
+                  <p v-if="data.description">
+                    {{ data.description.substring(0, 60) + "..." }}
+                  </p>
+                </v-card>
+              </v-hover>
+            </v-col>
+          </v-col>
+        </v-col>
+      </v-row>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
@@ -64,13 +86,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.book-container {
-  margin-top: 30px;
-  border: 1px solid #ccc;
-  display: inline-flex;
-  flex-direction: column;
+.book {
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0.7;
 
-  width: 200px;
-  cursor: pointer;
+  &:not(.on-hover) {
+    opacity: 1;
+  }
 }
 </style>

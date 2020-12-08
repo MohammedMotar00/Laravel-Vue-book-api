@@ -27,10 +27,11 @@ export default {
 
 <style lang="scss" scoped>
 .v-card {
-  transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0.8;
 
   &:not(.on-hover) {
-    opacity: 0.7;
+    opacity: 1;
   }
 }
 </style>
